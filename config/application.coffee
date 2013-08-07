@@ -11,24 +11,29 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application
     pushState: false
 
   # configure lineman to load additional tasks form npm
-  loadNpmTasks: ["grunt-concat-sourcemap", "grunt-contrib-copy"]
+  loadNpmTasks: [
+    "grunt-batman-templates"
+    "grunt-concat-sourcemap"
+  ]
 
   # we don't use the lineman default concat, handlebars, and jst tasks by default
   removeTasks:
     common: ["concat", "handlebars", "jst"]
 
-  # swaps concat_sourcemap in place of vanilla concat
   appendTasks:
-    dev:    ["copy:batman_views_dev"]
     common: ["concat_sourcemap"]
-    dist:   ["copy:batman_views_dist"]
 
-  # for copying batmans view templates into the lineman directories
-  copy:
-    batman_views_dev:
-      files: [{expand: true, src: ['<%= files.batman_views %>'], dest: 'generated/'}]
-    batman_views_dist:
-      files: [{expand: true, src: ['<%= files.batman_views %>'], dest: 'dist/'}]
+  # swaps concat_sourcemap in place of vanilla concat
+  prependTasks:
+    common: ["batman_templates"]
+
+  # generates a batman template precache into Batman.View.store
+  batman_templates:
+    options:
+      templateFolder: "app/html"
+    files:
+      src: "<%= files.batman_html %>"
+      dest: "<%= files.batman_viewstore %>"
 
   # generates a sourcemap for js, specs, and css with inlined sources
   # grunt-angular-templates expects that a module already be defined to inject into
@@ -38,7 +43,7 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application
       sourcesContent: true
 
     js:
-      src: ["<%= files.js.vendor %>", "<%= files.coffee.generated %>"]
+      src: ["<%= files.js.vendor %>", "<%= files.coffee.generated %>", "<%= files.batman_viewstore %>"]
       dest: "<%= files.js.concatenated %>"
 
     spec:
@@ -53,9 +58,9 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application
   # configures grunt-watch-nospawn to listen for changes and swaps the
   # watch target concat with concat_sourcemap
   watch:
-    batman_views:
-      files: ["<%= files.batman_views %>"]
-      tasks: ["copy:batman_views_dev"]
+    batman_templates:
+      files: ["<%= files.batman_html %>"]
+      tasks: ["batman_templates", "concat_sourcemap:js"]
 
     js:
       files: ["<%= files.js.vendor %>"]
