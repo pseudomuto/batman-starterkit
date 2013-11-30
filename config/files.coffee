@@ -11,17 +11,25 @@
 # * You can find the parent object in: node_modules/lineman/config/files.coffee
 #
 module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("files",
+  pages:
+    source: "app/layouts/**/*.*"
+
   js:
     vendor: ["vendor/js/jquery.js", "vendor/js/batman.js", "vendor/js/**/*.js"]
 
   coffee:
-    app: ["app/js/app.coffee", "app/js/**/*.coffee"]
+    app: ["app/app.coffee", "app/**/*.coffee"]
 
   batman_html: ["app/html/**/*.html"]
   batman_viewstore: "generated/batman/view-store.js"
 
-  less:
+  css:
+    app: "app/resources/css/**/*.css"
+
+  sass:
+    main: "app/resources/css/style.scss"
+    app: "app/resources/css/**/*.scss"
+    vendor: ["vendor/css/**/*.scss", "vendor/css/**/*.sass"]
     compile:
-      options:
-        paths: ["vendor/css/normalize.css", "vendor/css/**/*.css", "app/css/**/*.less"]
+      paths: ["vendor/css/normalize.css", "vendor/css/**/*.css", "app/resources/css/**/*.scss"]
 )

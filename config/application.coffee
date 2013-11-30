@@ -5,6 +5,7 @@
 # * You can find the parent object in: node_modules/lineman/config/application.coffee
 #
 module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application",
+  enableSass: true
 
   # html5push state simulation
   server:
@@ -18,7 +19,7 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application
 
   # we don't use the lineman default concat, handlebars, and jst tasks by default
   removeTasks:
-    common: ["concat", "handlebars", "jst"]
+    common: ["concat", "handlebars", "jst", "less", "jshint"]
 
   appendTasks:
     common: ["concat_sourcemap"]
@@ -34,6 +35,13 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application
     files:
       src: "<%= files.batman_html %>"
       dest: "<%= files.batman_viewstore %>"
+
+  images:
+    dev:
+      files: [ # vendor first, so 'app' wins any collisions
+        { expand: true, cwd: "vendor/", src: "img/**/*.*", dest: "generated/" }
+        { expand: true, cwd: "app/resources/", src: "img/**/*.*", dest: "generated/" }
+      ]
 
   # generates a sourcemap for js, specs, and css with inlined sources
   # grunt-angular-templates expects that a module already be defined to inject into
@@ -81,10 +89,6 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application
     css:
       files: ["<%= files.css.vendor %>", "<%= files.css.app %>"]
       tasks: ["concat_sourcemap:css"]
-
-    less:
-      files: ["<%= files.less.vendor %>", "<%= files.less.app %>"]
-      tasks: ["less", "concat_sourcemap:css"]
 
     sass:
       files: ["<%= files.sass.vendor %>", "<%= files.sass.app %>"]

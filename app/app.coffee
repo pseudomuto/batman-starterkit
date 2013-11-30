@@ -1,3 +1,6 @@
+Batman.extend Batman.config,
+  fetchRemoteHTML: false
+
 class BatmanApp extends Batman.App
   @set 'mission', 'fight crime'
 
