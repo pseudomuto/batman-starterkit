@@ -16,9 +16,11 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("files",
 
   js:
     vendor: ["vendor/js/jquery.js", "vendor/js/batman.js", "vendor/js/**/*.js"]
+    specHelpers: "test/helpers/**/*.js"
 
   coffee:
     app: ["app/app.coffee", "app/**/*.coffee"]
+    spec: "test/**/*.coffee"
 
   batman_html: ["app/html/**/*.html"]
   batman_viewstore: "generated/batman/view-store.js"
