@@ -4,11 +4,14 @@ This is a project template for [BatmanJS](http://batmanjs.org/) applications usi
 
 # Installing
 
-1. `git clone https://github.com/pseudomuto/batman-starterkit.git my_app`
-2. `cd my_app`
+1. Download the starter kit [zip], [tar]
+2. Extract and cd into the directory
 3. `npm install`
 4. `lineman run`
-5. open your web browser to localhost:8000
+5. Open <http://localhost:8000/>
+
+[zip]: https://github.com/pseudomuto/batman-starterkit/archive/0.1.0.zip
+[tar]: https://github.com/pseudomuto/batman-starterkit/archive/0.1.0.tar.gz
 
 # Running Tests
 
