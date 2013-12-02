@@ -6,6 +6,5 @@
     "generated/js/app.js",
     "generated/js/spec.js"
   ],
-  "debug": true,
   "fail_on_zero_tests": true
 }
