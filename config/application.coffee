@@ -36,13 +36,6 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("application
       src: "<%= files.batman_html %>"
       dest: "<%= files.batman_viewstore %>"
 
-  images:
-    dev:
-      files: [ # vendor first, so 'app' wins any collisions
-        { expand: true, cwd: "vendor/", src: "img/**/*.*", dest: "generated/" }
-        { expand: true, cwd: "app/resources/", src: "img/**/*.*", dest: "generated/" }
-      ]
-
   # generates a sourcemap for js, specs, and css with inlined sources
   # grunt-angular-templates expects that a module already be defined to inject into
   # this configuration orders the template inclusion _after_ the app level module
