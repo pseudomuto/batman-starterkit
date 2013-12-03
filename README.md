@@ -1,6 +1,6 @@
 # My BatmanJS Starter Kit
 
-[![Build Status](https://travis-ci.org/pseudomuto/batman-starterkit.png?branch=travis_ci_integration)](https://travis-ci.org/pseudomuto/batman-starterkit)
+[![Build Status](https://travis-ci.org/pseudomuto/batman-starterkit.png)](https://travis-ci.org/pseudomuto/batman-starterkit)
 
 This is a project template for [BatmanJS](http://batmanjs.org/) applications using [Lineman](http://www.linemanjs.com).
 
@@ -12,8 +12,8 @@ This is a project template for [BatmanJS](http://batmanjs.org/) applications usi
 4. `lineman run`
 5. Open <http://localhost:8000/>
 
-[zip]: https://github.com/pseudomuto/batman-starterkit/archive/0.2.2.zip
-[tar]: https://github.com/pseudomuto/batman-starterkit/archive/0.2.2.tar.gz
+[zip]: https://github.com/pseudomuto/batman-starterkit/archive/0.3.0.zip
+[tar]: https://github.com/pseudomuto/batman-starterkit/archive/0.3.0.tar.gz
 
 # Running Tests
 
