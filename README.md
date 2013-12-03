@@ -1,5 +1,7 @@
 # My BatmanJS Starter Kit
 
+[![Build Status](https://travis-ci.org/pseudomuto/batman-starterkit.png?branch=travis_ci_integration)](https://travis-ci.org/pseudomuto/batman-starterkit)
+
 This is a project template for [BatmanJS](http://batmanjs.org/) applications using [Lineman](http://www.linemanjs.com).
 
 # Installing

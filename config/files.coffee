@@ -19,7 +19,7 @@ module.exports = require(process.env["LINEMAN_MAIN"]).config.extend("files",
     root: "img"
 
   js:
-    vendor: ["vendor/js/jquery.js", "vendor/js/batman.js", "vendor/js/**/*.js"]
+    vendor: ["vendor/js/jquery.js", "vendor/js/e5-shim.js", "vendor/js/batman.js", "vendor/js/**/*.js"]
 
   coffee:
     app: ["app/app.coffee", "app/**/*.coffee"]

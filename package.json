@@ -7,6 +7,9 @@
     "name": "David Muto",
     "company": "pseudomuto"
   },
+  "scripts": {
+    "test": "lineman spec-ci"
+  },
   "dependencies": {
     "grunt-concat-sourcemap": "~0.3.0",
     "grunt-batman-templates": "~0.1.0",
