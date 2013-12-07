@@ -12,8 +12,8 @@ This is a project template for [BatmanJS](http://batmanjs.org/) applications usi
 4. `lineman run`
 5. Open <http://localhost:8000/>
 
-[zip]: https://github.com/pseudomuto/batman-starterkit/archive/0.3.0.zip
-[tar]: https://github.com/pseudomuto/batman-starterkit/archive/0.3.0.tar.gz
+[zip]: https://github.com/pseudomuto/batman-starterkit/archive/0.3.1.zip
+[tar]: https://github.com/pseudomuto/batman-starterkit/archive/0.3.1.tar.gz
 
 # Running Tests
 
